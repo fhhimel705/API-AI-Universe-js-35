@@ -5,16 +5,18 @@ body {
     width: 1360px;
 }
 #header-div , #ai-img{
-    height: 626px;
+    height: 600px;
 }
 
-
+.dark-image {
+    filter: brightness(0.4); /* Adjust the brightness value (between 0 and 1) as needed */
+  }
 @media screen and (max-width: 660px) {
     #ai-img{
         width: fit-content;
     }
     #header-div , #ai-img{
-        height: fit-content;
+        height: 200px;
     }
         
 }

@@ -5,7 +5,7 @@ fetch("https://openapi.programming-hero.com/api/ai/tools")
     const aiData = data.data.tools;
     const aiGridSection = document.getElementById("ai-grid-section");
     aiData.forEach((aiCompany, index) => {
-        console.log(aiCompany.id);
+      console.log(aiCompany.id);
       const createAiDiv = document.createElement("div");
       createAiDiv.classList.add("p-5");
       createAiDiv.classList.add("border");
@@ -35,7 +35,9 @@ fetch("https://openapi.programming-hero.com/api/ai/tools")
                         <p class="text-slate-600">Date : <span>11/01/2022</span> </p>
                     </div>
                     <div >
-                        <button  onclick="aiModal(${aiCompany.id})" class="bg-red-100  text-red-700 px-3  py-2 rounded-full"><i class="fa-solid fa-arrow-right"></i></button>
+                        <button  onclick="aiModal(${
+                          aiCompany.id
+                        })" class="bg-red-100  text-red-700 px-3  py-2 rounded-full"><i class="fa-solid fa-arrow-right"></i></button>
                         
                         
 </div>
@@ -47,40 +49,55 @@ fetch("https://openapi.programming-hero.com/api/ai/tools")
 
 const aiModal = (ID) => {
   console.log(ID);
-  fetch(`https://openapi.programming-hero.com/api/ai/tool/${ID>9? ID : '0'+ID}`)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    const dialog = document.getElementById("my_modal_4");
-    dialog.showModal();
+  fetch(
+    `https://openapi.programming-hero.com/api/ai/tool/${ID > 9 ? ID : "0" + ID}`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      const dialog = document.getElementById("my_modal_4");
+      dialog.showModal();
+      const aiData = data.data;
 
       dialog.innerHTML = `
-      <div class="modal-box w-11/12 max-w-5xl">
+      <div class="modal-box w-11/12 max-w-5xl px-16 py-8">
       <div class="grid md:grid-cols-2 gap-7 ">
           <div class="bg-red-50 border-2 rounded-xl border-red-400 p-4">
-              <h5 id="" class="text-xl font-semibold">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h5>
-              <p class = "text-2xl">${data.data.tool_name} </p>
+              <h5 class="text-xl font-semibold">${aiData.description}</h5>
+             
 
-              <div class=" grid grid-cols-3 gap-2 py-4">
-                  <p class="bg-white text-green-500 font-semibold md:text-lg text-xs rounded-xl p-5">$10 month Basic</p>
-                  <p class="bg-white text-orange-500 font-semibold md:text-lg text-xs rounded-xl p-5">$10 month Basic</p>
-                  <p class="bg-white text-red-500 font-semibold md:text-lg text-xs rounded-xl p-5">$10 month Basic</p>
+              <div class=" grid grid-cols-3  gap-2 py-4">
+                  <p class="bg-white  text-green-500 font-semibold md:text-lg text-xs rounded-xl p-5">${
+                    aiData.pricing[0].price
+                  } ${
+                    aiData.pricing[0].plan
+                  } </p>
+                  <p class="bg-white text-orange-500 font-semibold md:text-lg text-xs rounded-xl p-5">${
+                    aiData.pricing[1].price
+                  } ${
+                    aiData.pricing[1].plan
+                  } </p>
+                  <p class="bg-white text-red-500 font-semibold md:text-lg text-xs rounded-xl p-5">${
+                    aiData.pricing[2].price
+                  } ${
+                    aiData.pricing[2].plan
+                  } </p>
               </div>
               <div class="grid grid-cols-2">
                  <div>
                   <h6 class="text-xl font-bold">Features</h6>
-                  <ul>
-                      <li class="text-xs text-slate-500">Features</li>
-                      <li class="text-xs text-slate-500">Features</li>
-                      <li class="text-xs text-slate-500">Features</li>
+                  <ul class = "pt-2">
+                      <li class="text-xs text-slate-500">. ${aiData.features[1].feature_name}</li>
+                      <li class="text-xs py-1 text-slate-500">. ${aiData.features[2].feature_name}</li>
+                      <li class="text-xs text-slate-500">. ${aiData.features[3].feature_name}</li>
                   </ul>
                  </div>
                  <div>
-                  <h6 class="text-lg font-bold">Features</h6>
-                  <ul>
-                      <li class="text-xs text-slate-500">Features</li>
-                      <li class="text-xs text-slate-500">Features</li>
-                      <li class="text-xs text-slate-500">Features</li>
+                  <h6 class="text-lg font-bold">Integrations</h6>
+                  <ul class = "pt-2">
+                      <li class="text-xs text-slate-500">. ${aiData.integrations[0]}</li>
+                      <li class="text-xs py-1 text-slate-500">. ${aiData.integrations[1]}</li>
+                      <li class="text-xs text-slate-500">. ${aiData.integrations[2]}</li>
                   </ul>
                  </div>
               </div>
@@ -88,9 +105,13 @@ const aiModal = (ID) => {
 
           </div>
           <div class=" border-2 border-red-400 rounded-xl p-7">
-              <img class="rounded-xl" src="ai.jpg" alt="">
-              <h5 class="text-xl text-center py-8 font-bold">Hi, how are you doing today?</h5>
-              <p class="text-xs text-center text-slate-700">I'm doing well, thank you for asking. How can I assist you today?</p>
+              <img class="rounded-xl" src="${
+                aiData.image_link[0]
+                  ? aiData.image_link[0]
+                  : aiData.image_link[1]
+              }" alt="">
+              <h5 class="text-xl text-center py-8 font-bold">${aiData.input_output_examples[0].input}</h5>
+              <p class="text-xs text-center text-slate-700">${aiData.input_output_examples[0].output}</p>
               </div>
 
 
