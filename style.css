@@ -1,0 +1,20 @@
+body {
+    max-width: 1360px;
+}
+#ai-img{
+    width: 1360px;
+}
+#header-div , #ai-img{
+    height: 626px;
+}
+
+
+@media screen and (max-width: 660px) {
+    #ai-img{
+        width: fit-content;
+    }
+    #header-div , #ai-img{
+        height: fit-content;
+    }
+        
+}
