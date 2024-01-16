@@ -20,42 +20,50 @@ const displayData = (aiData02, limit) => {
   const aiData = aiData02.slice(0, limit);
 
   const aiGridSection = document.getElementById("ai-grid-section");
+  aiGridSection.innerText = '';
   aiData.forEach((aiCompany) => {
     console.log(aiCompany.id);
     const createAiDiv = document.createElement("div");
-    createAiDiv.classList.add("p-5");
+    createAiDiv.classList.add("md:p-5");
+    createAiDiv.classList.add("p-2");
     createAiDiv.classList.add("border");
     createAiDiv.classList.add("rounded-2xl");
+    
     createAiDiv.innerHTML = `
             
-                    <div class="border-b-2">
-                        <img  src="${
-                          aiCompany.image ? aiCompany.image : "ai.jpg"
-                        }" class="rounded-2xl" alt="">
-                    <h5 class="text-2xl py-4 font-semibold">Features</h5>
-                    <p class="text-lg text-slate-600 py-1">1. ${
-                      aiCompany.features[0]
-                    }</p>
-                    <p class="text-lg text-slate-600 py-1">2. ${
-                      aiCompany.features[1]
-                    }</p>
-                    <p class="text-lg text-slate-600 py-1 pb-6">3. ${
-                      aiCompany.features[2]
-                        ? aiCompany.features[2]
-                        : "That's it !"
-                    }</p>
+                    <div class="border-b-2 ">
+       
+                       <img  src="${
+                        aiCompany.image ? aiCompany.image : "ai.jpg"
+                      }" class="rounded-2xl" alt="">
+                 
+                       <h5 class="md:text-2xl text-lg py-4 font-semibold">Features</h5>
+                       <p class="md:text-lg text-xs text-slate-600 md:py-1">1. ${
+                         aiCompany.features[0]
+                       }</p>
+                       <p class="md:text-lg text-xs text-slate-600 md:py-1">2. ${
+                         aiCompany.features[1]
+                       }</p>
+                       <p class="md:text-lg text-xs text-slate-600 md:py-1 md:pb-6 pb-2">3. ${
+                         aiCompany.features[2]
+                           ? aiCompany.features[2]
+                           : "That's it !"
+                       }</p>
+                     
+
+                  
                     </div>
                     <div class="flex pt-5 justify-between">
                         <div>
-                            <h4 class="text-2xl font-semibold  pb-2">${
+                            <h4 class="md:text-2xl text-lg font-semibold  pb-2">${
                               aiCompany.name
                             }</h4>
-                            <p class="text-slate-600"><i class="fa-regular fa-calendar-days"></i> <span>11/01/2022</span> </p>
+                            <p class="text-slate-600 text-xs md:text-lg"><i class="fa-regular fa-calendar-days"></i> <span>11/01/2022</span> </p>
                         </div>
                         <div >
                             <button  onclick="aiModal(${
                               aiCompany.id
-                            })" class="bg-red-100  text-red-700 px-3  py-2 rounded-full"><i class="fa-solid fa-arrow-right"></i></button>
+                            })" class="bg-red-100  text-red-700 md:px-3 px-1 md:py-2 rounded-full"><i class="fa-solid fa-arrow-right"></i></button>
                             
                             
     </div>
@@ -129,14 +137,14 @@ const aiModal = (ID) => {
 
 
           </div>
-          <div class=" border-2 border-red-400 rounded-xl p-7">
+          <div class=" border-2 border-red-400 rounded-xl md:p-7 p-2 ">
               <img class="rounded-xl relative" src="${
                 aiData.image_link[0]
                   ? aiData.image_link[0]
                   : aiData.image_link[1]
               }" alt="">
             
-            <button class="absolute top-24 right-28  text-xs bg-red-600 px-2 rounded-lg font-medium py-1 text-white">Accuracy : ${
+            <button class="absolute md:top-24 bottom-28 md:right-28 right-16  text-xs bg-red-600 md:px-2 rounded-lg font-medium px-1 py-1 text-white">Accuracy : ${
               aiData.accuracy.score
             }</button>
         
@@ -152,7 +160,7 @@ const aiModal = (ID) => {
           </div>
          
       </div>
-      <div class="modal-action absolute top-20 right-60">
+      <div class="modal-action absolute md:top-20 right-1 top-0  md:right-60">
           <form method="dialog">
 
               <button class="text-red-100  bg-red-700 px-3  py-2 rounded-full"><i class="fa-solid fa-xmark"></i></button>
@@ -172,3 +180,4 @@ const showSpinner = (isLoading) => {
     spinner.classList.add("hidden");
   }
 };
+

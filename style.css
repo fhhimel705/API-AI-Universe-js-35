@@ -1,5 +1,7 @@
-body {
+*{
     max-width: 1360px;
+    margin: auto;
+    
 }
 #ai-img{
     width: 1360px;
