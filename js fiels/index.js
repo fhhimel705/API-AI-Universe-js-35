@@ -11,7 +11,6 @@ const showData = () => {
       seeMore.addEventListener("click", function () {
         seeMore.classList.add("hidden");
         displayData(aiData02);
-        
       });
     });
 };
@@ -137,7 +136,7 @@ const aiModal = (ID) => {
                   : aiData.image_link[1]
               }" alt="">
             
-            <button class="relative  text-xs bg-red-600 px-2 rounded-lg font-medium py-1 text-white">Accuracy : ${
+            <button class="absolute top-24 right-28  text-xs bg-red-600 px-2 rounded-lg font-medium py-1 text-white">Accuracy : ${
               aiData.accuracy.score
             }</button>
         
@@ -153,7 +152,7 @@ const aiModal = (ID) => {
           </div>
          
       </div>
-      <div class="modal-action">
+      <div class="modal-action absolute top-20 right-60">
           <form method="dialog">
 
               <button class="text-red-100  bg-red-700 px-3  py-2 rounded-full"><i class="fa-solid fa-xmark"></i></button>
@@ -164,7 +163,6 @@ const aiModal = (ID) => {
     });
 };
 showData();
-
 
 const showSpinner = (isLoading) => {
   const spinner = document.getElementById("spinner");

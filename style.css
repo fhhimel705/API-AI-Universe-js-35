@@ -3,6 +3,7 @@ body {
 }
 #ai-img{
     width: 1360px;
+    clip-path: polygon(0 0, 50% 4%, 100% 0, 100% 62%, 100% 100%, 49% 96%, 0 100%, 0 21%);
 }
 #header-div , #ai-img{
     height: 600px;
@@ -14,6 +15,7 @@ body {
 @media screen and (max-width: 660px) {
     #ai-img{
         width: 100%;
+        clip-path: polygon(0 0, 50% 4%, 100% 0, 100% 62%, 100% 100%, 49% 96%, 0 100%, 0 21%);
     }
     #header-div , #ai-img{
         height: 200px;
