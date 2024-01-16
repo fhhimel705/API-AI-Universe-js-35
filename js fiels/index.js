@@ -88,7 +88,7 @@ const aiModal = (ID) => {
 
       dialog.innerHTML = `
       <div class="modal-box w-11/12 max-w-5xl md:px-16 md:py-8 relative">
-      <div class="grid md:grid-cols-2 gap-7 ">
+      <div class="grid md:grid-cols-2 md:gap-7 gap-3">
           <div class="bg-red-50 border-2 rounded-xl border-red-400 p-4">
               <h5 class="text-xl font-semibold">${aiData.description}</h5>
              
@@ -148,7 +148,7 @@ const aiModal = (ID) => {
               aiData.accuracy.score
             }</button>
         
-              <h5 class="text-xl text-center py-8 font-bold">${
+              <h5 class="text-xl text-center md:py-8 py-1 font-bold">${
                 aiData.input_output_examples[0].input
               }</h5>
               <p class="text-xs text-center text-slate-700">${
