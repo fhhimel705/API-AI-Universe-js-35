@@ -20,7 +20,7 @@
     <header class="md:my-12 mb-5">
 
         <div class="absolute dark-image">
-            <img id="ai-img" class="md:rounded-xl" src="images/ai-03.jpg" alt="">
+            <img id="ai-img" class="md:rounded-xl" src="ai-08.png" alt="">
         </div>
         <div class="relative md:pt-48 " id="header-div">
             <h2 class="md:text-6xl text-2xl text-white md:font-semibold md:py-5 py-5 text-center">Welcome to AI Universe
@@ -28,19 +28,23 @@
             <p class="md:text-xl text-xs text-white py-3 md:font-semibold text-center px-16 md:pb-5">Lorem ipsum dolor
                 sit amet consectetur adipisicing elit.</p>
             <input type="text" placeholder="Search"
-                class="md:p-2 px-3  bg-slate-200  font-semibold md:text-xl rounded-xl flex mx-auto md:w-5/12 w-7/12">
+                class=" md:p-2 px-3  bg-transparent border-2 text-white border-white  font-semibold md:text-xl rounded-xl flex mx-auto md:w-5/12 w-7/12">
         </div>
     </header>
     <main class="my-16">
         <button class="px-6 py-3 text-white text-xl font-bold rounded-lg bg-red-500 flex mx-auto">Sort By Date</button>
+        <div id="spinner" class="hidden">
+          <span class="loading loading-spinner md:loading-lg flex my-4 md:mt-8 mx-auto text-info"></span>
+        </div>
         <section id="ai-grid-section" class="my-8 grid gap-10 md:grid-cols-3">
-            
+
 
         </section>
         <div id="see-more-btn" class="hidden">
           <button  onclick="seeMore()" class="px-6  py-3 text-white text-xl font-bold rounded-lg bg-red-500 flex mx-auto">See More</button>
         </div>
-    </main>
+        
+      </main>
     <footer>
         <section>
             <div id="modal-id">

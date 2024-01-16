@@ -2,25 +2,24 @@ const showData = () => {
   fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then((res) => res.json())
     .then((data) => {
-
       let aiData02 = data.data.tools;
-      displayData(aiData02 , 6);
+      displayData(aiData02, 6);
 
       const seeMore = document.getElementById("see-more-btn");
-      seeMore.classList.remove('hidden');
-      
+      seeMore.classList.remove("hidden");
+
       seeMore.addEventListener("click", function () {
-        seeMore.classList.add('hidden');
+        seeMore.classList.add("hidden");
         displayData(aiData02);
+        
       });
     });
 };
 
+const displayData = (aiData02, limit) => {
+  showSpinner(true);
+  const aiData = aiData02.slice(0, limit);
 
-const displayData = (aiData02 , limit) => {
-
-const aiData =  aiData02.slice(0,limit);
-  
   const aiGridSection = document.getElementById("ai-grid-section");
   aiData.forEach((aiCompany) => {
     console.log(aiCompany.id);
@@ -64,10 +63,9 @@ const aiData =  aiData02.slice(0,limit);
     </div>
             `;
     aiGridSection.appendChild(createAiDiv);
+    showSpinner(false);
   });
 };
-
-
 
 const aiModal = (ID) => {
   console.log(ID);
@@ -133,11 +131,16 @@ const aiModal = (ID) => {
 
           </div>
           <div class=" border-2 border-red-400 rounded-xl p-7">
-              <img class="rounded-xl" src="${
+              <img class="rounded-xl relative" src="${
                 aiData.image_link[0]
                   ? aiData.image_link[0]
                   : aiData.image_link[1]
               }" alt="">
+            
+            <button class="relative  text-xs bg-red-600 px-2 rounded-lg font-medium py-1 text-white">Accuracy : ${
+              aiData.accuracy.score
+            }</button>
+        
               <h5 class="text-xl text-center py-8 font-bold">${
                 aiData.input_output_examples[0].input
               }</h5>
@@ -161,3 +164,13 @@ const aiModal = (ID) => {
     });
 };
 showData();
+
+
+const showSpinner = (isLoading) => {
+  const spinner = document.getElementById("spinner");
+  if (isLoading) {
+    spinner.classList.remove("hidden");
+  } else {
+    spinner.classList.add("hidden");
+  }
+};
