@@ -53,14 +53,14 @@ const displayData = (aiData02, limit) => {
 
                   
                     </div>
-                    <div class="flex pt-5 justify-between">
+                    <div class="flex" pt-5 ">
                         <div>
                             <h4 class="md:text-2xl text-lg font-semibold  pb-2">${
                               aiCompany.name
                             }</h4>
                             <p class="text-slate-600 text-xs md:text-lg"><i class="fa-regular fa-calendar-days"></i> <span>11/01/2022</span> </p>
                         </div>
-                        <div >
+                        <div class = "ms-auto">
                             <button  onclick="aiModal(${
                               aiCompany.id
                             })" class="bg-red-100  text-red-700 md:px-3 px-1 md:py-2 rounded-full"><i class="fa-solid fa-arrow-right"></i></button>
@@ -144,7 +144,7 @@ const aiModal = (ID) => {
                   : aiData.image_link[1]
               }" alt="">
             
-            <button class="absolute md:top-24 bottom-28 md:right-28 right-16  text-xs bg-red-600 md:px-2 rounded-lg font-medium px-1 py-1 text-white">Accuracy : ${
+            <button class="absolute md:top-24 md:right-28 right-16  text-xs bg-red-600 px-2 rounded-lg font-medium  py-1 text-white">Accuracy : ${
               aiData.accuracy.score
             }</button>
         
