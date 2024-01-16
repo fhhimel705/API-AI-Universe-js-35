@@ -52,7 +52,7 @@ const aiData =  aiData02.slice(0,limit);
                             <h4 class="text-2xl font-semibold  pb-2">${
                               aiCompany.name
                             }</h4>
-                            <p class="text-slate-600">Date : <span>11/01/2022</span> </p>
+                            <p class="text-slate-600"><i class="fa-regular fa-calendar-days"></i> <span>11/01/2022</span> </p>
                         </div>
                         <div >
                             <button  onclick="aiModal(${
@@ -153,7 +153,7 @@ const aiModal = (ID) => {
       <div class="modal-action">
           <form method="dialog">
 
-              <button class="btn">Close</button>
+              <button class="text-red-100  bg-red-700 px-3  py-2 rounded-full"><i class="fa-solid fa-xmark"></i></button>
           </form>
       </div>
   </div>
