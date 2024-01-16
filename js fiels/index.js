@@ -87,7 +87,7 @@ const aiModal = (ID) => {
       const aiData = data.data;
 
       dialog.innerHTML = `
-      <div class="modal-box w-11/12 max-w-5xl md:px-16 md:py-8">
+      <div class="modal-box w-11/12 max-w-5xl md:px-16 md:py-8 relative">
       <div class="grid md:grid-cols-2 gap-7 ">
           <div class="bg-red-50 border-2 rounded-xl border-red-400 p-4">
               <h5 class="text-xl font-semibold">${aiData.description}</h5>
@@ -138,13 +138,13 @@ const aiModal = (ID) => {
 
           </div>
           <div class=" border-2 border-red-400 rounded-xl md:p-7 p-2 ">
-              <img class="rounded-xl relative" src="${
+              <img class="rounded-xl md:relative" src="${
                 aiData.image_link[0]
                   ? aiData.image_link[0]
                   : aiData.image_link[1]
               }" alt="">
             
-            <button class="absolute md:top-24 md:right-28 right-16  text-xs bg-red-600 px-2 rounded-lg font-medium  py-1 text-white">Accuracy : ${
+            <button class="md:absolute md:top-24 md:right-28 right-16  text-xs bg-red-600 px-2 rounded-lg font-medium  py-1 text-white">Accuracy : ${
               aiData.accuracy.score
             }</button>
         
