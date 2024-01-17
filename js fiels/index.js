@@ -28,10 +28,12 @@ const displayData = (aiData02, limit) => {
     createAiDiv.classList.add("p-2");
     createAiDiv.classList.add("border");
     createAiDiv.classList.add("rounded-2xl");
+    createAiDiv.classList.add("grid");
+    createAiDiv.classList.add("grid-row-4");
     
     createAiDiv.innerHTML = `
             
-                    <div class="border-b-2 ">
+                    <div class="border-b-2 row-span-3">
        
                        <img  src="${
                         aiCompany.image ? aiCompany.image : "ai.jpg"
@@ -53,14 +55,14 @@ const displayData = (aiData02, limit) => {
 
                   
                     </div>
-                    <div class="flex" pt-5 ">
+                    <div class="flex" pt-5 row-span-1 ">
                         <div>
-                            <h4 class="md:text-2xl text-lg font-semibold  pb-2">${
+                            <h4 class="md:text-2xl text-lg font-semibold  py-2">${
                               aiCompany.name
                             }</h4>
                             <p class="text-slate-600 text-xs md:text-lg"><i class="fa-regular fa-calendar-days"></i> <span>11/01/2022</span> </p>
                         </div>
-                        <div class = "ms-auto">
+                        <div class = "ms-auto pt-4">
                             <button  onclick="aiModal(${
                               aiCompany.id
                             })" class="bg-red-100  text-red-700 md:px-3 px-1 md:py-2 rounded-full"><i class="fa-solid fa-arrow-right"></i></button>
